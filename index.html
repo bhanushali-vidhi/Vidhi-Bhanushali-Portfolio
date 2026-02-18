@@ -12,13 +12,13 @@
             fontFamily: {
               serif: ['"Crimson Text"', 'serif'],
               hand: ['"Patrick Hand"', 'cursive'],
-              sans: ['"Crimson Text"', 'serif'], // Overriding default sans to serif for book feel
+              sans: ['"Crimson Text"', 'serif'],
             },
             colors: {
               'paper': '#fdfbf7',
               'ink': '#2c2c2c',
               'pencil': '#555555',
-              'highlight': '#fef08a', // Yellow marker
+              'highlight': '#fef08a',
             },
             backgroundImage: {
               'doodle-pattern': "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E\")",
@@ -33,9 +33,23 @@
         font-family: 'Crimson Text', serif;
         background-color: #fdfbf7;
         color: #2c2c2c;
+        overflow-x: hidden;
         background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
       }
-      
+
+      /* Crazy Sketchy Scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2c2c2c;
+        border: 4px solid #fdfbf7;
+        border-radius: 10px;
+      }
+
       /* Hand-drawn border effect class */
       .sketch-border {
         border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
@@ -56,6 +70,34 @@
         background-position: 0% 80%;
         background-repeat: no-repeat;
         background-size: 100% 40%;
+      }
+
+      /* Crazy Scroll Animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(50px) rotate(2deg);
+        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0); }
+        50% { transform: translateY(-10px) rotate(2deg); }
+      }
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      @keyframes scribble {
+        from { stroke-dashoffset: 1000; }
+        to { stroke-dashoffset: 0; }
+      }
+      .scribble-line {
+        stroke-dasharray: 1000;
+        animation: scribble 2s ease-out forwards;
       }
     </style>
   <script type="importmap">
