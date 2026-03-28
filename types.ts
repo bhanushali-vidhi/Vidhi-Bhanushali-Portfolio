@@ -32,4 +32,16 @@ export interface CaseStudyDetail extends CaseStudy {
   solution: string;
   results: string[];
   contentImages: string[];
+  highFiImages: string[];
+  trigger?: string;
+  insight?: string;
+  hmw?: string;
+  currentExp?: string;
+  productThinking?: string[];
+  userFlow?: string[];
+  keyScreens?: { title: string; annotations: string[] }[];
+  constraints?: string[];
+  testing?: string[];
+  futureScope?: string[];
+  reflection?: string;
 }

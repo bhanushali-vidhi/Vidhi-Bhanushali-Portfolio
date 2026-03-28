@@ -21,19 +21,19 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-6 pt-32 pb-20 overflow-hidden">
+    <div className="max-w-5xl mx-auto px-6 pt-24 pb-16 overflow-hidden">
       
       {/* Section 1: The Hero */}
-      <section className="mb-32 reveal">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-ink mb-8 leading-tight">
+      <section className="mb-24 reveal">
+        <div className="max-w-2xl">
+          <h1 className="text-4xl md:text-6xl font-serif font-bold text-ink mb-6 leading-tight">
             A page about me, <br />
             <span className="relative inline-block">
               because I deserve it.
               <DoodleUnderline className="absolute -bottom-2 left-0 w-full text-blue-400 opacity-60" />
             </span>
           </h1>
-          <p className="text-2xl md:text-3xl text-pencil font-serif italic leading-relaxed">
+          <p className="text-xl md:text-2xl text-pencil font-serif italic leading-relaxed">
             If I'm not working, I'm probably thinking about my next trip. Or nerding out over fictional books, comics, and fashion. I bridge the gap between creative vision and technical implementation.
           </p>
         </div>
@@ -87,7 +87,7 @@ const About: React.FC = () => {
                 </div>
                 <div>
                    <p className="font-hand text-blue-600 text-lg">Currently Vibe-ing</p>
-                   <h4 className="font-serif font-bold text-xl text-ink">Lady Brown — Nujabes</h4>
+                   <h4 className="font-serif font-bold text-xl text-ink">Take me to the river — Alex Yurkiv</h4>
                 </div>
              </div>
              
@@ -150,9 +150,9 @@ const About: React.FC = () => {
 
         <div className="relative -mx-6 px-6 overflow-x-auto pb-12 scrollbar-hide flex space-x-8">
            {[
-             { title: "Comic Collector", img: "https://images.unsplash.com/photo-1588497859490-85d1c17db96d?auto=format&fit=crop&q=80&w=500" },
+             { title: "Vibe Coder", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=500" },
              { title: "Street Photography", img: "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&q=80&w=500" },
-             { title: "Fiction Lover", img: "https://images.unsplash.com/photo-1474932430478-367dbb6832c1?auto=format&fit=crop&q=80&w=500" },
+             { title: "Fiction Lover", img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=500" },
              { title: "Fashion Obsessed", img: "https://images.unsplash.com/photo-1529133039905-dc731ca6918f?auto=format&fit=crop&q=80&w=500" }
            ].map((item, idx) => (
              <div key={idx} className="flex-shrink-0 w-[300px] group">

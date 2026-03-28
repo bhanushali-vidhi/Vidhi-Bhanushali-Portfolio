@@ -1,18 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
+import Resume from './pages/Resume';
 import CaseStudyDetail from './pages/CaseStudyDetail';
 import LoadingScreen from './components/LoadingScreen';
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    // If there's a hash, scroll to the element
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        // Use a small timeout to ensure the DOM is ready if navigating from another page
+        const timeoutId = setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        return () => clearTimeout(timeoutId);
+      }
+    } else {
+      // Otherwise scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [pathname, hash]);
   
   return null;
 };
@@ -48,29 +64,38 @@ const App: React.FC = () => {
     // Simulate a "crazy" loading time to show off the animation
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
-
   return (
     <Router>
-      <ScrollToTop />
-      <ScrollRevealManager />
-      <div className="flex flex-col min-h-screen bg-white transition-opacity duration-1000 opacity-100">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/work/:id" element={<CaseStudyDetail />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <LoadingScreen key="loading" />
+        ) : (
+          <motion.div 
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="flex flex-col min-h-screen bg-white"
+          >
+            <ScrollToTop />
+            <ScrollRevealManager />
+            <Navbar />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/work/:id" element={<CaseStudyDetail />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/resume" element={<Resume />} />
+              </Routes>
+            </main>
+            <Footer />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Router>
   );
 };

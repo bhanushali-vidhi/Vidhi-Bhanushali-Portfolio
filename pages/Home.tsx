@@ -10,25 +10,33 @@ const caseStudies: CaseStudy[] = [
     title: 'Reducing Document Verification Time by 95%',
     category: 'Product Design',
     description: 'Enabled 3–4× higher case throughput by reducing document verification time by 95% through automation.',
-    imageUrl: 'https://picsum.photos/800/600?random=1',
+    imageUrl: 'https://ais-pre-5qp56ocwb6pxoler3jfgsk-302303930896.asia-east1.run.app/api/images/7',
+    link: '#'
+  },
+  {
+    id: '2',
+    title: 'Groomify',
+    category: 'Product Thinking',
+    description: 'Designing for decisions people are afraid to make. A real-time grooming simulation that reduces uncertainty.',
+    imageUrl: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1200',
     link: '#'
   }
 ];
 
 const Home: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-6 pt-32 pb-20 relative overflow-hidden min-h-screen">
+    <div className="max-w-6xl mx-auto px-6 pt-24 pb-16 relative overflow-hidden min-h-screen">
       
       {/* Decorative Doodles Background */}
       <DoodleStar className="absolute top-20 right-10 w-16 h-16 text-yellow-400 opacity-60 transform rotate-12 animate-float" />
       <DoodleCircle className="absolute top-[600px] left-[-20px] w-32 h-32 text-blue-200 opacity-40 animate-float" style={{ animationDelay: '1s' }} />
 
       {/* 1. Selected Work (Now First) */}
-      <section className="mb-40">
-        <div className="flex items-center justify-between mb-16 reveal">
+      <section className="mb-32">
+        <div className="flex items-center justify-between mb-12 reveal">
           <div className="flex items-center space-x-4">
-             <h2 className="text-3xl md:text-4xl font-hand font-bold text-ink transform -rotate-1">Selected Work</h2>
-             <span className="text-pencil font-serif italic text-lg opacity-60">(Recent Chapters)</span>
+             <h2 className="text-2xl md:text-3xl font-hand font-bold text-ink transform -rotate-1">Selected Work</h2>
+             <span className="text-pencil font-serif italic text-base opacity-60">(Recent Chapters)</span>
           </div>
           <DoodleSparkle className="w-10 h-10 text-blue-400 animate-pulse hidden md:block" />
         </div>
@@ -57,15 +65,15 @@ const Home: React.FC = () => {
                   <span className="text-xl font-hand font-bold text-blue-600 mb-2 block">
                     {study.category}
                   </span>
-                  <h3 className="text-3xl font-serif font-bold text-ink mb-4 group-hover:underline decoration-wavy decoration-blue-300">
+                  <h3 className="text-2xl font-serif font-bold text-ink mb-3 group-hover:underline decoration-wavy decoration-blue-300">
                     {study.title}
                   </h3>
-                  <p className="text-pencil leading-relaxed text-xl font-serif max-w-lg">
+                  <p className="text-pencil leading-relaxed text-lg font-serif max-w-lg">
                     {study.description}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full border-2 border-pencil flex items-center justify-center group-hover:bg-ink group-hover:text-white transition-all transform group-hover:rotate-45 group-hover:scale-110 flex-shrink-0 ml-6">
-                    <ArrowUpRight size={24} strokeWidth={2} />
+                <div className="w-10 h-10 rounded-full border-2 border-pencil flex items-center justify-center group-hover:bg-ink group-hover:text-white transition-all transform group-hover:rotate-45 group-hover:scale-110 flex-shrink-0 ml-6">
+                    <ArrowUpRight size={20} strokeWidth={2} />
                 </div>
               </div>
             </Link>
@@ -82,31 +90,31 @@ const Home: React.FC = () => {
       </section>
 
       {/* 2. Hero Section / Intro (Now Second) */}
-      <section className="mb-20 max-w-5xl mx-auto py-24 px-8 sketch-border bg-paper/50 relative reveal">
-        <DoodleArrow className="absolute -top-12 -left-8 w-24 h-24 text-gray-300 transform -rotate-12 animate-float" />
+      <section className="mb-16 max-w-4xl mx-auto py-16 px-8 sketch-border bg-paper/50 relative reveal">
+        <DoodleArrow className="absolute -top-10 -left-6 w-20 h-20 text-gray-300 transform -rotate-12 animate-float" />
         
-        <div className="relative inline-block mb-10">
-          <h2 className="text-5xl md:text-7xl font-bold text-ink leading-[1.1] font-serif">
+        <div className="relative inline-block mb-8">
+          <h2 className="text-4xl md:text-6xl font-bold text-ink leading-[1.1] font-serif">
             Hi, I'm Vidhi Bhanushali.
           </h2>
-          <DoodleSparkle className="absolute -top-10 -right-12 w-16 h-16 text-yellow-400 animate-pulse" />
+          <DoodleSparkle className="absolute -top-8 -right-10 w-12 h-12 text-yellow-400 animate-pulse" />
         </div>
         
         <div className="relative">
-          <p className="text-2xl md:text-4xl text-pencil font-serif italic leading-relaxed pl-8 border-l-8 border-blue-100">
-            I am an <span className="marker-highlight px-1">Associate UI/UX Designer</span> & Computer Engineer based in Mumbai. I craft intuitive digital experiences by bridging the gap between design and development.
+          <p className="text-xl md:text-3xl text-pencil font-serif italic leading-relaxed pl-6 border-l-4 border-blue-100">
+            I am a <span className="marker-highlight px-1">Product Designer Intern</span> & Computer Engineer based in Mumbai. I craft intuitive digital experiences by bridging the gap between design and development.
           </p>
           
-          <div className="mt-12 flex items-center space-x-8">
+          <div className="mt-10 flex items-center space-x-6">
             <Link 
               to="/about" 
-              className="sketch-button bg-ink text-paper px-10 py-4 text-xl font-hand font-bold hover:scale-105 transition-transform inline-block"
+              className="sketch-button bg-ink text-paper px-8 py-3 text-lg font-hand font-bold hover:scale-105 transition-transform inline-block"
             >
               The Full Story
             </Link>
-            <div className="hidden sm:flex items-center text-pencil font-hand text-xl italic">
+            <div className="hidden sm:flex items-center text-pencil font-hand text-lg italic">
                <span className="mr-3">Curating experiences from Mumbai</span>
-               <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+               <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
             </div>
           </div>
         </div>
